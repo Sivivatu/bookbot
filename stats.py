@@ -1,9 +1,9 @@
-def get_num_words(text: str):
+def get_num_words(text: str) -> int:
     words = text.split()
     return len(words)
 
 
-def get_book_text(path):
+def get_book_text(path: str) -> str:
     with open(path) as f:
         return f.read()
 
@@ -38,12 +38,12 @@ letters = (
 )
 
 
-def unique_characters(string) -> dict:
-    chars = {}
+def get_chars_dict(string: str) -> dict[str, int]:
+    chars: dict[str, int] = {}
 
     for character in string:
         # if character in letters:
-        lower = character.lower()
+        lower: str = character.lower()
         if lower in chars:
             chars[lower] += 1
         else:
