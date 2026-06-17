@@ -2,7 +2,6 @@ def get_num_words(text: str) -> int:
     words = text.split()
     return len(words)
 
-
 def get_book_text(path: str) -> str:
     with open(path) as f:
         return f.read()
@@ -49,3 +48,13 @@ def get_chars_dict(string: str) -> dict[str, int]:
         else:
             chars[lower] = 1
     return chars
+
+def sort_on(d: tuple[str, int]) -> int:
+    return d[1]
+
+def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    sorted_list: list[tuple[str, int]] = []
+    for k, v in chars_dict.items():
+        sorted_list.append((k, v))
+    sorted_list.sort(key=sort_on, reverse=True)
+    return sorted_list
